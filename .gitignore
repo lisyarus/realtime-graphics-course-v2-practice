@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+.vscode/
+.vs/
+.cursor/
+.cache/
+.clangd/
+cpp/cmake-build-*/
+cpp/build/
+rust/target/
+

@@ -1,0 +1,8 @@
+[package]
+name = "practice01"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wgpu = { workspace = true }
+wgpu_app = { path = "../wgpu_app" }
