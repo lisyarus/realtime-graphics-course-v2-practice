@@ -5,22 +5,22 @@ const PROJECT_ROOT: &str = env!("CARGO_MANIFEST_DIR");
 struct Practice01 {}
 
 impl WgpuApp for Practice01 {
-    fn new(gpu: &WgpuState) -> Self {
+    fn new(app: &WgpuState) -> Self {
         Self{}
     }
 
-    fn redraw(&mut self, gpu: &mut WgpuState) {
-        let Some(surface_texture) = gpu.begin_frame() else {
+    fn redraw(&mut self, app: &mut WgpuState) {
+        let Some(surface_texture) = app.begin_frame() else {
             return;
         };
 
-        let view = surface_texture
+        let target_view = surface_texture
             .texture
             .create_view(&wgpu::TextureViewDescriptor::default());
 
         // Frame rendering code goes here
 
-        gpu.queue.present(surface_texture);
+        app.queue.present(surface_texture);
     }
 }
 

@@ -30,11 +30,11 @@ int main() try {
         if (!surfaceTexture)
             continue;
 
-        WGPUTextureView target = wgpuTextureCreateView(surfaceTexture->texture, nullptr);
+        WGPUTextureView targetView = wgpuTextureCreateView(surfaceTexture->texture, nullptr);
 
         // Frame rendering code goes here
 
-        wgpuTextureViewRelease(target);
+        wgpuTextureViewRelease(targetView);
 
         wgpuSurfacePresent(app.surface());
         wgpuTextureRelease(surfaceTexture->texture);
