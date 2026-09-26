@@ -228,7 +228,7 @@ pub fn run<P: WgpuApp>(config: AppConfig) {
                     }
                 },
                 WindowEvent::CursorMoved { position, .. } => {
-                    gpu.mouse = Vec2::new(position.x as f32, position.y as f32) * gpu.pixel_density();
+                    gpu.mouse = Vec2::new(position.x as f32, position.y as f32);
                 },
                 WindowEvent::MouseInput { state, button, .. } => {
                     match state {
