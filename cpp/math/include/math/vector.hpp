@@ -118,6 +118,14 @@ constexpr vector<T, N> & operator /= (vector<T, N> & a, T s) {
 }
 
 template <typename T, std::size_t N>
+constexpr vector<T, N> & operator /= (vector<T, N> & a, vector<T, N> const & b) {
+    for (std::size_t i = 0; i < N; ++i) {
+        a[i] /= b[i];
+    }
+    return a;
+}
+
+template <typename T, std::size_t N>
 constexpr vector<T, N> operator + (vector<T, N> a, vector<T, N> const & b) {
     return a += b;
 }
@@ -153,6 +161,11 @@ constexpr vector<T, N> operator * (vector<T, N> a, vector<T, N> const & b) {
 template <typename T, std::size_t N>
 constexpr vector<T, N> operator / (vector<T, N> v, T s) {
     return v /= s;
+}
+
+template <typename T, std::size_t N>
+constexpr vector<T, N> operator / (vector<T, N> a, vector<T, N> const & b) {
+    return a /= b;
 }
 
 template <typename T, std::size_t N>
