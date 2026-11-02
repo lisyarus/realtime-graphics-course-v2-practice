@@ -79,7 +79,7 @@ impl WgpuState {
 
         let (device, queue) = adapter
             .request_device(&wgpu::DeviceDescriptor {
-                required_features: wgpu::Features::IMMEDIATES,
+                required_features: wgpu::Features::IMMEDIATES | wgpu::Features::FLOAT32_FILTERABLE,
                 required_limits: wgpu::Limits {
                     max_immediate_size: 128,
                     ..Default::default()
