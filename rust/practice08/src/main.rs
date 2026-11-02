@@ -364,7 +364,7 @@ impl WgpuApp for Practice08 {
 
         let camera_uniforms = CameraUniforms {
             view_projection: projection_matrix * view_matrix,
-            position: Vec3::new(0.0, 0.0, 0.0),
+            position: (view_matrix.inverse() * Vec4::new(0.0, 0.0, 0.0, 1.0)).truncate(),
             padding: 0.0,
         };
 
