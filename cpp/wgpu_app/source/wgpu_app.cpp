@@ -108,13 +108,14 @@ WGPUDevice requestDevice(WGPUAdapter adapter) {
 
     WGPUFeatureName const features[] = {
         static_cast<WGPUFeatureName>(WGPUNativeFeature_Immediates),
+        static_cast<WGPUFeatureName>(WGPUFeatureName_Float32Filterable),
     };
     WGPULimits limits = WGPU_LIMITS_INIT;
     limits.maxImmediateSize = 128;
 
     WGPUDeviceDescriptor descriptor = WGPU_DEVICE_DESCRIPTOR_INIT;
     descriptor.label = {"device", WGPU_STRLEN};
-    descriptor.requiredFeatureCount = 1;
+    descriptor.requiredFeatureCount = std::size(features);
     descriptor.requiredFeatures = features;
     descriptor.requiredLimits = &limits;
 
