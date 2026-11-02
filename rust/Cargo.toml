@@ -9,6 +9,7 @@ members = [
     "practice06",
     "practice07",
     "practice08",
+    "practice09",
 ]
 resolver = "2"
 
