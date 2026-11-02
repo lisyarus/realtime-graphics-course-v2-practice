@@ -4,6 +4,7 @@
 #include <math/vector.hpp>
 
 #include <cstddef>
+#include <limits>
 
 namespace math {
 
@@ -13,6 +14,15 @@ struct box {
     vector<T, N> max;
 
     friend constexpr bool operator == (box const &, box const &) = default;
+
+    static constexpr box null() {
+        box result;
+        for (std::size_t i = 0; i < N; ++i) {
+            result.min[i] = std::numeric_limits<T>::infinity();
+            result.max[i] = -result.min[i];
+        }
+        return result;
+    }
 };
 
 template <typename T, std::size_t N>
