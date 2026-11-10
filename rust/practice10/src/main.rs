@@ -113,7 +113,7 @@ fn generate_sphere(radius: f32, quality: i32) -> (Vec<Vertex>, Vec<u32>) {
                 normal: normal.to_array(),
                 texcoord: [
                     longitude as f32 / (4 * quality) as f32,
-                    latitude as f32 / (2 * quality) as f32 + 0.5,
+                    0.5 - latitude as f32 / (2 * quality) as f32,
                 ],
                 tangent: tangent.to_array(),
             });

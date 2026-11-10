@@ -154,7 +154,7 @@ std::pair<std::vector<Vertex>, std::vector<std::uint32_t>> generateSphere(float 
             vertex.normal = {std::cos(lat) * std::cos(lon), std::sin(lat), std::cos(lat) * std::sin(lon)};
             vertex.position = vertex.normal * radius;
             vertex.tangent = {-std::cos(lat) * std::sin(lon), 0.f, std::cos(lat) * std::cos(lon)};
-            vertex.texcoord = {(longitude * 1.f) / (4.f * quality), (latitude * 1.f) / (2.f * quality) + 0.5f};
+            vertex.texcoord = {(longitude * 1.f) / (4.f * quality), 0.5f - (latitude * 1.f) / (2.f * quality)};
         }
     }
 
